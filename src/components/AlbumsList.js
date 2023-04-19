@@ -5,7 +5,6 @@ import Skeleton from './Skeleton';
 
 function AlbumsList({ user }) {
   const { data, error, isLoading } = useFetchAlbumsQuery(user);
-  // eslint-disable-next-line no-unused-vars
   const [addAlbum, results] = useAddAlbumMutation();
 
   const handleAddAlbum = () => {
@@ -30,9 +29,11 @@ function AlbumsList({ user }) {
 
   return (
     <div>
-      <div>
-        Albums for {user.name}
-        <Button onClick={handleAddAlbum}>+ Add Album</Button>
+      <div className='m-2 flex flex-row items-center justify-between'>
+        <h3 className='text-lg font-bold'>Albums for {user.name}</h3>
+        <Button loading={results.isLoading} onClick={handleAddAlbum}>
+          + Add Album
+        </Button>
       </div>
       <div>{content}</div>
     </div>

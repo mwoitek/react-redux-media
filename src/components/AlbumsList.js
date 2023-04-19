@@ -5,6 +5,7 @@ import Skeleton from './Skeleton';
 
 function AlbumsList({ user }) {
   const { data, error, isLoading } = useFetchAlbumsQuery(user);
+  // eslint-disable-next-line no-unused-vars
   const [addAlbum, results] = useAddAlbumMutation();
 
   const handleAddAlbum = () => {
